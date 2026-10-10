@@ -1,0 +1,167 @@
+@use 'tokens' as *;
+:root {
+  --color-primary-navy: #{$color-primary-navy};
+  --color-brand-red: #{$color-brand-red};
+  --color-bg: #{$color-bg};
+  --color-surface: #{$color-surface};
+  --color-text-primary: #{$color-text-primary};
+  --color-text-secondary: #{$color-text-secondary};
+  --color-success: #{$color-success};
+  --color-warning: #{$color-warning};
+  --color-danger: #{$color-danger};
+  --color-chart-accent: #{$color-chart-accent};
+
+  --color-navy-strong: #{$color-navy-strong};
+  --color-border: #{$color-border};
+  --color-field-bg: #{$color-field-bg};
+  --color-danger-bg: #{$color-danger-bg};
+  --color-danger-text: #{$color-danger-text};
+  --color-muted: #{$color-muted};
+
+  --color-success-bg: #{$color-success-bg};
+  --color-success-text: #{$color-success-text};
+  --color-warning-bg: #{$color-warning-bg};
+  --color-warning-text: #{$color-warning-text};
+  --color-chart-accent-soft: #{$color-chart-accent-soft};
+  --color-surface-muted: #{$color-surface-muted};
+
+  --radius-card: #{$radius-card};
+  --radius-input: #{$radius-input};
+  --radius-pill: #{$radius-pill};
+  --radius-sm: #{$radius-sm};
+
+  --space-1: #{$space-1};
+  --space-2: #{$space-2};
+  --space-3: #{$space-3};
+  --space-4: #{$space-4};
+  --space-5: #{$space-5};
+  --space-6: #{$space-6};
+  --space-8: #{$space-8};
+  --space-10: #{$space-10};
+
+  --font-sans: #{$font-sans};
+
+  --shadow-card: #{$shadow-card};
+  --shadow-button: #{$shadow-button};
+
+  --transition-fast: #{$transition-fast};
+  --transition-base: #{$transition-base};
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#__nuxt {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+button {
+  font-family: inherit;
+}
+:focus-visible {
+  outline: 3px solid rgba(34, 197, 232, 0.9);
+  outline-offset: 2px;
+}
+.sa-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 14px;
+  background: var(--color-field-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  transition: border-color var(--transition-base),
+    box-shadow var(--transition-base), background var(--transition-base);
+}
+
+.sa-field:focus-within {
+  border-color: var(--color-primary-navy);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(14, 33, 56, 0.12);
+}
+
+.sa-field--invalid {
+  border-color: var(--color-danger);
+}
+
+.sa-field--invalid:focus-within {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px rgba(230, 55, 87, 0.15);
+}
+
+.sa-field__icon {
+  display: flex;
+  color: var(--color-text-secondary);
+}
+
+.sa-field__input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font: inherit;
+  font-size: 16px; // >=16px prevents iOS auto-zoom on focus
+  color: var(--color-text-primary);
+}
+
+.sa-field__input::placeholder {
+  color: var(--color-muted);
+}
+
+.sa-field__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.sa-field__toggle:hover {
+  color: var(--color-primary-navy);
+  background: rgba(14, 33, 56, 0.06);
+}
+
+.sa-field__toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
